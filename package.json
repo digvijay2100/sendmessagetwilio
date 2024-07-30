@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "netlify deploy --prod"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -6,6 +9,10 @@
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "init": "^0.1.2",
+    "netlify": "^13.1.20",
+    "netlify-cli": "^17.33.4",
+    "netlify-lambda": "^2.0.16",
+    "serverless-http": "^3.2.0",
     "twilio": "^5.2.2"
   }
 }

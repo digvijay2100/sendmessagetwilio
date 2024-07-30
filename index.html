@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <center>
+            <div id="main">
+            <h1>Message Sending Using Twilio</h1>
+            <input id="num" type="text" placeholder="Enter your number"><br><br>
+            <input id="message" type="text" placeholder="Your message"><br><br>
+            <Button id="button">Send Data</Button>
+            </div>
+            
+        </center>
+
+
+        <script>
+            let number = '';
+            document.getElementById('button').addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log("event occur")
+                number = document.getElementById('num').value;
+                let message = document.getElementById('message').value;
+                let url = 'http://localhost:3000/senddata'; // Corrected URL
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        number: number,
+                        message: message
+                    })
+                })
+                    .then(response => response.text())
+                    .then(data => myDisplay(data))
+                    .catch(error => console.error('Error:', error));
+            });
+
+            function myDisplay(data) {
+                if (number == '+917057194242') {
+                    alert('Response from server: ' + data);
+
+                }
+                else {
+
+                    alert('Number is not verified');
+                }
+            }
+        </script>
+
+    </body>
+
+    </html>
